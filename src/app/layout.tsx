@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import BackToTop from "@/components/ui/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +20,11 @@ export const metadata: Metadata = {
   description: "Professional web developer and designer creating amazing digital experiences with modern technologies.",
   keywords: ["web development", "design", "react", "nextjs", "typescript"],
   authors: [{ name: "Adam" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -28,10 +35,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
-        <div className="min-h-screen flex flex-col">
+  <div className="relative z-10 min-h-screen flex flex-col">
+          <AnimatedBackground />
+          <ScrollProgress />
           {children}
+          <BackToTop />
         </div>
       </body>
     </html>
