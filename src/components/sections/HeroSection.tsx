@@ -21,7 +21,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <ScrollReveal animation="slideLeft" className="text-center lg:text-left">
-            <div className="heading-eyebrow mb-4">IT Developerss</div>
+            <div className="heading-eyebrow mb-4">IT Developer</div>
             
             <h1 className="text-4xl md:text-5xl lg:text-7xl heading-title mb-6 leading-tight">
               <span className="text-[var(--foreground)]">Hello, I'm</span>{' '}
