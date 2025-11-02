@@ -22,20 +22,20 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              &lt;Adam/&gt;
+              Adam Fawazzaky
             </h3>
     <p className="muted mb-4 max-w-md">
-              Creating amazing digital experiences across the cosmic web. 
-              Let's build something stellar together in the digital universe.
+              Full Stack Developer passionate about creating exceptional digital experiences. 
+              Let's collaborate and build something amazing together.
             </p>
             <div className="flex space-x-4">
-      <a href="#" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors group">
+      <a href="https://github.com/Andreean26" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors group">
                 <GitHubIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
               </a>
-      <a href="#" className="text-[var(--muted)] hover:text-[var(--accent-2)] transition-colors group">
+      <a href="https://www.linkedin.com/in/adam-andreean-2739b3222" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent-2)] transition-colors group">
                 <LinkedInIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
               </a>
-      <a href="#" className="text-[var(--muted)] hover:text-[var(--accent-3)] transition-colors group">
+      <a href="https://www.instagram.com/adam_fawazzaky/" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent-3)] transition-colors group">
                 <TwitterIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
               </a>
             </div>
@@ -43,10 +43,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-[var(--accent)]">Navigation Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-[var(--accent)]">Quick Links</h4>
             <ul className="space-y-2">
               <li><Link href="#home" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Home</Link></li>
               <li><Link href="#about" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">About</Link></li>
+              <li><Link href="#skills" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Skills</Link></li>
               <li><Link href="#services" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Services</Link></li>
               <li><Link href="#portfolio" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Portfolio</Link></li>
             </ul>
@@ -54,19 +55,23 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-[var(--accent-2)]">Contact Coordinates</h4>
+            <h4 className="text-lg font-semibold mb-4 text-[var(--accent-2)]">Get In Touch</h4>
             <ul className="space-y-2 text-[var(--muted)]">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-[var(--accent)] rounded-full mr-2 animate-pulse"></span>
-                Quantum Mail: fawazzakyadam26@gmail.com
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-[var(--accent)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                <a href="mailto:fawazzakyadam26@gmail.com" className="hover:text-[var(--accent)] transition-colors">
+                  fawazzakyadam26@gmail.com
+                </a>
               </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-[var(--accent-2)] rounded-full mr-2 animate-pulse"></span>
-                Stellar Com: +62 821-3208-2482
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-[var(--accent-2)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                <a href="https://wa.me/6282132082482" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-2)] transition-colors">
+                  +62 821-3208-2482
+                </a>
               </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-[var(--accent-3)] rounded-full mr-2 animate-pulse"></span>
-                Galaxy: Surabaya, Indonesia
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-[var(--accent-3)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                <span>Surabaya, Indonesia</span>
               </li>
             </ul>
           </div>
@@ -75,7 +80,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[var(--border)] mt-8 pt-8 text-center">
           <p className="text-[var(--muted)]">
-            &copy; 2025 Adam. All rights reserved across the digital universe.
+            &copy; 2025 Adam Fawazzaky Fardy Andreean. All rights reserved.
           </p>
         </div>
       </div>

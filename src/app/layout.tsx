@@ -16,10 +16,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adam - IT Developer",
-  description: "Professional web developer and designer creating amazing digital experiences with modern technologies.",
-  keywords: ["web development", "design", "react", "nextjs", "typescript"],
-  authors: [{ name: "Adam" }],
+  title: "Adam Fawazzaky - Full Stack Developer Portfolio",
+  description: "Full Stack Developer specializing in web and mobile application development. Expert in React, Next.js, Laravel, React Native, and Flutter. Based in Surabaya, Indonesia.",
+  keywords: [
+    "Full Stack Developer",
+    "Web Development",
+    "Mobile Development",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Laravel",
+    "React Native",
+    "Flutter",
+    "Node.js",
+    "Portfolio",
+    "Surabaya Developer",
+    "Indonesia Developer"
+  ],
+  authors: [{ name: "Adam Fawazzaky Fardy Andreean" }],
+  creator: "Adam Fawazzaky",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://yourdomain.com",
+    title: "Adam Fawazzaky - Full Stack Developer",
+    description: "Full Stack Developer specializing in web and mobile applications with modern technologies.",
+    siteName: "Adam Fawazzaky Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Adam Fawazzaky - Full Stack Developer",
+    description: "Full Stack Developer specializing in web and mobile applications",
+  },
 };
 
 export const viewport: Viewport = {

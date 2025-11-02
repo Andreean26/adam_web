@@ -65,9 +65,13 @@ export default function PortfolioSection() {
               className="group surface-card surface-hover rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 relative cursor-pointer"
             >
               {/* Project Image */}
-              <div className="h-48 bg-gradient-to-br from-[var(--card)] to-transparent flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/5 to-[var(--accent-2)]/5"></div>
-                <span className="text-[var(--muted)] text-sm">Project Preview</span>
+              <div className="h-48 bg-gradient-to-br from-[var(--card)] to-transparent relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
 
               {/* Project Content */}

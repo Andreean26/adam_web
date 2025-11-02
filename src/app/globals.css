@@ -159,6 +159,11 @@ section[id] {
   to { transform: rotate(-90deg) translateX(150px) rotate(90deg); }
 }
 
+@keyframes slideInWidth {
+  from { width: 0%; }
+  to { width: var(--target-width, 100%); }
+}
+
 /* Animation Classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;

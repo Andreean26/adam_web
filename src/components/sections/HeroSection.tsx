@@ -26,22 +26,22 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-5xl lg:text-7xl heading-title mb-6 leading-tight">
               <span className="text-[var(--foreground)]">Hello, I'm</span>{' '}
               <span className="bg-gradient-to-r from-[var(--accent)] via-[var(--accent-2)] to-[var(--accent-3)] bg-clip-text text-transparent animate-gradient-x">
-                Adam
+                Adam Fawazzaky
               </span>
             </h1>
             
             <div className="relative mb-8">
               <p className="text-lg md:text-xl muted leading-relaxed font-light">
-                I craft fast, accessible, and modern web applications.
-                Focused on clean code, great UX, and measurable impact.
+                Full Stack Developer specializing in building exceptional web and mobile applications.
+                I transform ideas into elegant, scalable solutions with modern technologies.
               </p>
-              <span className="inline-block w-0.5 h-6 bg-cyan-400 animate-blink ml-1"></span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="/assets/documents/CV - Adam Fawazzaky Fardi Andreean new (1).pdf"
-                download="CV_Adam_Fawazzaky_Fardi_Andreean.pdf"
+              // solve untracked cv download
+                href="/assets/documents/Adam Fawazzaky Fardy Andreean ATS CV.pdf"
+                download="CV_Adam_Fawazzaky_Fardy_Andreean.pdf"
                 className="group relative px-8 py-4 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 surface-card surface-hover"
                 >
                 <span className="relative z-10 flex items-center gap-2">
