@@ -148,6 +148,9 @@ export default function SkillsSection() {
               <span className="px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-full text-sm text-cyan-400">
                 Clean Code
               </span>
+                <span className="px-4 py-2 bg-[var(--card)] border border-[var(--border)] rounded-full text-sm text-green-400">
+                Critical Thinking
+                </span>
             </div>
           </div>
         </ScrollReveal>
