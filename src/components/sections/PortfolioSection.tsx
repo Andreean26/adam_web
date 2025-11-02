@@ -84,13 +84,13 @@ export default function PortfolioSection() {
                     <span className="text-sm text-[var(--accent)] font-medium font-mono">
                       {project.category}
                     </span>
-                    <a
+                    {/* <a
                       href={project.link}
                       onClick={(e) => e.stopPropagation()}
                       className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors group-hover:text-[var(--accent)]"
                     >
                       <LaunchIcon className="w-5 h-5" />
-                    </a>
+                    </a> */}
                   </div>
                   
                   <h3 className="text-xl font-bold text-[var(--foreground)] mb-3 group-hover:text-[var(--accent)] transition-colors duration-300">

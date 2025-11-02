@@ -48,7 +48,7 @@ export default function Footer() {
               <li><Link href="#home" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Home</Link></li>
               <li><Link href="#about" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">About</Link></li>
               <li><Link href="#skills" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Skills</Link></li>
-              <li><Link href="#services" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Services</Link></li>
+              {/* <li><Link href="#services" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Services</Link></li> */}
               <li><Link href="#portfolio" className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Portfolio</Link></li>
             </ul>
           </div>
@@ -59,7 +59,12 @@ export default function Footer() {
             <ul className="space-y-2 text-[var(--muted)]">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-[var(--accent)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
-                <a href="mailto:fawazzakyadam26@gmail.com" className="hover:text-[var(--accent)] transition-colors">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=fawazzakyadam26@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[var(--accent)] transition-colors"
+                  >
                   fawazzakyadam26@gmail.com
                 </a>
               </li>

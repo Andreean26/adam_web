@@ -20,10 +20,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adam Fawazzaky - Full Stack Developer Portfolio",
-  description: "Full Stack Developer specializing in web and mobile application development. Expert in React, Next.js, Laravel, React Native, and Flutter. Based in Surabaya, Indonesia.",
+  title: "Adam Fawazzaky - IT Developer Portfolio",
+  description: "IT Developer specializing in web and mobile application development. Expert in React, Next.js, Laravel, React Native, and Flutter. Based in Surabaya, Indonesia.",
   keywords: [
-    "Full Stack Developer",
+    "IT Developer",
     "Web Development",
     "Mobile Development",
     "React",

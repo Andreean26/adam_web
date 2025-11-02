@@ -17,7 +17,7 @@ export default function Header() {
       { id: 'home', label: 'Home' },
       { id: 'about', label: 'About' },
       { id: 'skills', label: 'Skills' },
-      { id: 'services', label: 'Services' },
+      // { id: 'services', label: 'Services' },
       { id: 'portfolio', label: 'Portfolio' },
       { id: 'contact', label: 'Contact' },
     ] as { id: SectionId; label: string }[]

@@ -106,26 +106,28 @@ export const projects: Project[] = [
 			
 		],
 	},
-	// {
-	// 	id: 4,
-	// 	title: 'Analytics Dashboard',
-	// 	category: 'Web Development',
-	// 	description: 'A comprehensive dashboard with real-time data visualization.',
-	// 	image: '/placeholder-project-4.jpg',
-	// 	technologies: ['Vue.js', 'D3.js', 'Node.js', 'PostgreSQL'],
-	// 	link: '#',
-	// 	client: 'DataPulse Inc.',
-	// 	role: 'Frontend Engineer',
-	// 	period: 'Nov 2024 - Jan 2025',
-	// 	highlights: [
-	// 		'Streaming charts with WebSockets',
-	// 		'Custom theming and saved views',
-	// 		'Row-level security with Postgres',
-	// 	],
-	// 	live: 'https://example.com/analytics',
-	// 	repository: 'https://github.com/Andreean26/analytics-demo',
-	// 	images: Array.from({ length: 4 }, (_, i) => svgPlaceholder(1200, 800, colorPalette[(3 + i) % colorPalette.length], `Analytics ${i + 1}`)),
-	// },
+	{
+		id: 4,
+		title: 'PokeDex Web App',
+		category: 'Web Development',
+		description: 'Collection of Pokémon data using React and PokeAPI.',
+		image: '/images/data/pokemon/pokemon.jpg',
+		technologies: ['svelte', 'TypeScript', 'Tailwind CSS', 'PokeAPI'],
+		link: '#',
+		client: 'private project',
+		role: 'Front-end Developer',
+		period: 'Aug 2024 - Aug 2025',
+		highlights: [
+			'Complete Pokédex with search and filter',
+			'Responsive design for all devices',
+			'Favorite Pokémon feature with local storage',
+		],
+		live: 'https://pokemon-favoritku.vercel.app/',
+		repository: 'https://github.com/Andreean26/pokemon_favoritku',
+		images: [
+			'/images/data/pokemon/pokemon.jpg',
+		],
+	},
 	
 ];
 
