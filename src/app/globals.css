@@ -102,20 +102,25 @@ section[id] {
   border-color: color-mix(in oklab, var(--accent), var(--border) 70%);
 }
 
-/* Space Theme Animations */
+/* Space Theme Animations - GPU Accelerated */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -20px, 0); }
 }
 
 @keyframes float-delayed {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -15px, 0); }
 }
 
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 @keyframes spin-reverse {
@@ -240,6 +245,14 @@ section[id] {
   animation: fade-in 0.2s ease-out;
 }
 
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
 /* Subtle Grid Pattern */
 .bg-grid-pattern {
   background-image:
@@ -274,6 +287,8 @@ section[id] {
   opacity: 0.25;
   mix-blend-mode: screen;
   will-change: transform;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
 }
 
 .blob-1 {

@@ -76,26 +76,85 @@ export default function HeroSection() {
             </div>
           </ScrollReveal>
 
-          {/* Visual */}
+          {/* Visual - Artistic Hero Image */}
           <ScrollReveal animation="slideRight" delay={200} className="flex justify-center lg:justify-end">
             <div className="relative">
+              {/* Main container */}
               <div className="relative w-80 h-80 md:w-96 md:h-96">
-                {/* Soft halo */}
-                <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-[var(--accent)]/20 via-transparent to-[var(--accent-2)]/20 blur-2xl"></div>
-                {/* Border ring */}
-                <div className="absolute inset-0 rounded-full border border-[var(--border)]/80"></div>
-                {/* Portrait */}
-                <div className="absolute inset-2 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/hero/Adam Fawazzaky Fardy Andreean.jpg"
-                    alt="Adam portrait"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+                {/* Animated gradient orbs in background */}
+                <div className="absolute -inset-8 opacity-60">
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-2xl animate-float"></div>
+                  <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-2xl animate-float-delayed"></div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-gradient-to-br from-violet-400 to-indigo-500 rounded-full blur-3xl"></div>
+                </div>
+
+                {/* Geometric shapes */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Rotating border rings */}
+                  <div className="absolute inset-0 rounded-[3rem] border-2 border-[var(--accent)]/20 animate-spin-slow"></div>
+                  <div className="absolute inset-4 rounded-[2.5rem] border-2 border-[var(--accent-2)]/20 animate-spin-reverse"></div>
+                  
+                  {/* Corner accents */}
+                  <div className="absolute -top-2 -left-2 w-16 h-16 border-t-2 border-l-2 border-[var(--accent)] rounded-tl-2xl"></div>
+                  <div className="absolute -bottom-2 -right-2 w-16 h-16 border-b-2 border-r-2 border-[var(--accent-2)] rounded-br-2xl"></div>
+                </div>
+
+                {/* Main image container with unique shape */}
+                <div className="absolute inset-8 group perspective-1000">
+                  {/* Glassmorphism card effect */}
+                  <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 via-transparent to-[var(--accent-2)]/10 z-10"></div>
+                    
+                    {/* Image */}
+                    <div className="absolute inset-0 bg-[var(--card)]">
+                      <Image
+                        src="/images/hero/adam hero.jpg"
+                        alt="Adam Fawazzaky - Full Stack Developer"
+                        fill
+                        sizes="(max-width: 768px) 320px, 384px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        priority
+                        quality={85}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRscHC0f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA9QB2ptbgN0xAABcIX/9k="
+                      />
+                    </div>
+
+                    {/* Animated border shimmer */}
+                    <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                    </div>
+
+                    {/* Bottom gradient fade */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[var(--card)] to-transparent z-10"></div>
+                  </div>
+
+                  {/* Floating tech badges */}
+                  <div className="absolute -right-4 top-1/4 bg-gradient-to-br from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-float z-20">
+                    ⚛️ React
+                  </div>
+                  <div className="absolute -left-4 top-2/3 bg-gradient-to-br from-purple-500 to-violet-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-float-delayed z-20">
+                    🚀 Next.js
+                  </div>
+                  <div className="absolute -right-2 bottom-1/4 bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-float z-20">
+                    💻 Full Stack
+                  </div>
+                </div>
+
+                {/* Decorative dots pattern */}
+                <div className="absolute -bottom-4 -right-4 grid grid-cols-3 gap-2 opacity-40">
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-2)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-3)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-2)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-3)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-3)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-2)]"></div>
                 </div>
               </div>
-              
             </div>
           </ScrollReveal>
         </div>
