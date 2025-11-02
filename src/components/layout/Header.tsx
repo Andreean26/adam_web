@@ -4,12 +4,13 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 
-type SectionId = 'home' | 'about' | 'services' | 'portfolio' | 'contact';
+type SectionId = 'home' | 'about' | 'skills' | 'services' | 'portfolio' | 'contact';
 
 export default function Header() {
   // progress 0 -> top state, 1 -> fully collapsed floating state
   const [scrollProgress, setScrollProgress] = useState(0);
   const [active, setActive] = useState<SectionId>('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = useMemo(() => (
     [
@@ -41,9 +42,21 @@ export default function Header() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // Close mobile menu when clicking outside or on link
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   // Scrollspy (viewport center line method)
   useEffect(() => {
-    const ids: SectionId[] = ['home', 'about', 'services', 'portfolio', 'contact'];
+    const ids: SectionId[] = ['home', 'about', 'skills', 'services', 'portfolio', 'contact'];
     const elements = ids.map(id => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
     if (!elements.length) return;
 
@@ -158,14 +171,80 @@ export default function Header() {
           {/* Right side */}
             <div className="flex items-center gap-3">
               <ThemeToggle />
-              <button className="md:hidden text-[var(--muted)] hover:text-[var(--accent)] transition-colors" aria-label="Open menu">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden text-[var(--muted)] hover:text-[var(--accent)] transition-colors p-2" 
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileMenuOpen ? (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-40 pointer-events-auto">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <div 
+            className="absolute top-20 right-4 left-4 bg-[var(--surface)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden animate-slide-down"
+            style={{
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+            }}
+          >
+            <nav className="py-4">
+              {navItems.map((item, index) => {
+                const isActive = active === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={() => {
+                      setActive(item.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={
+                      'flex items-center px-6 py-4 text-base font-medium transition-all border-l-4 ' +
+                      (isActive 
+                        ? 'text-[var(--accent)] border-[var(--accent)] bg-[var(--card)]' 
+                        : 'text-[var(--muted)] border-transparent hover:text-[var(--foreground)] hover:bg-[var(--card)] hover:border-[var(--accent)]/50')
+                    }
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                      animation: 'slideInRight 0.3s ease-out both'
+                    }}
+                  >
+                    <span className="mr-3 text-xl">
+                      {item.id === 'home' && '🏠'}
+                      {item.id === 'about' && '👤'}
+                      {item.id === 'skills' && '⚡'}
+                      {item.id === 'services' && '💼'}
+                      {item.id === 'portfolio' && '🎨'}
+                      {item.id === 'contact' && '📧'}
+                    </span>
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
