@@ -35,9 +35,9 @@ export default function Footer() {
       <a href="https://www.linkedin.com/in/adam-andreean-2739b3222" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent-2)] transition-colors group">
                 <LinkedInIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
               </a>
-      <a href="https://www.instagram.com/adam_fawazzaky/" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent-3)] transition-colors group">
+      {/* <a href="https://www.instagram.com/adam_fawazzaky/" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] hover:text-[var(--accent-3)] transition-colors group">
                 <TwitterIcon className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-              </a>
+              </a> */}
             </div>
           </div>
 

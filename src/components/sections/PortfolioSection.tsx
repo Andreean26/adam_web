@@ -10,9 +10,11 @@ export default function PortfolioSection() {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState('');
 
   useEffect(() => {
-    if (open) {
+    if (open || lightboxOpen) {
       document.documentElement.style.overflow = 'hidden';
     } else {
       document.documentElement.style.overflow = '';
@@ -20,15 +22,21 @@ export default function PortfolioSection() {
     return () => {
       document.documentElement.style.overflow = '';
     };
-  }, [open]);
+  }, [open, lightboxOpen]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        if (lightboxOpen) {
+          setLightboxOpen(false);
+        } else {
+          setOpen(false);
+        }
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [lightboxOpen]);
 
   const onOpen = (project: Project) => {
     setActiveProject(project);
@@ -39,6 +47,16 @@ export default function PortfolioSection() {
   const onClose = () => {
     setOpen(false);
     setTimeout(() => setActiveProject(null), 200);
+  };
+
+  const openLightbox = (imageSrc: string) => {
+    setLightboxImage(imageSrc);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setTimeout(() => setLightboxImage(''), 200);
   };
 
   return (
@@ -130,20 +148,20 @@ export default function PortfolioSection() {
       {/* Modal */}
       {open && activeProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6"
           role="dialog"
           aria-modal="true"
           onClick={onClose}
         >
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-modal-backdrop-in" />
           <div
-            className="relative z-10 w-full max-w-6xl bg-[var(--surface)] border border-[var(--border)] rounded-2xl overflow-hidden shadow-2xl animate-modal-content-in"
+            className="relative z-10 w-full max-w-6xl max-h-[90vh] bg-[var(--surface)] border border-[var(--border)] rounded-2xl shadow-2xl animate-modal-content-in overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               aria-label="Close"
               onClick={onClose}
-              className="absolute top-3 right-3 w-9 h-9 grid place-items-center rounded-full border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] bg-[color-mix(in_oklab,var(--surface),transparent_10%)] backdrop-blur-md"
+              className="sticky top-3 right-3 ml-auto mr-3 w-9 h-9 grid place-items-center rounded-full border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] bg-[color-mix(in_oklab,var(--surface),transparent_10%)] backdrop-blur-md z-20"
             >
               <CloseIcon fontSize="small" />
             </button>
@@ -151,12 +169,21 @@ export default function PortfolioSection() {
             <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-0 lg:gap-6">
               {/* Left: gallery */}
               <div className="p-4 md:p-6">
-                <div className="aspect-[3/2] w-full rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--card)] flex items-center justify-center">
+                <div 
+                  className="aspect-[3/2] w-full rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--card)] flex items-center justify-center cursor-zoom-in group relative"
+                  onClick={() => openLightbox((activeProject.images && activeProject.images[activeImage]) || activeProject.image)}
+                >
                   <img
                     src={(activeProject.images && activeProject.images[activeImage]) || activeProject.image}
                     alt={`${activeProject.title} preview ${activeImage + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  {/* Zoom indicator */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
+                      🔍 Click to zoom
+                    </div>
+                  </div>
                 </div>
                 {/* Thumbnails */}
                 <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
@@ -242,6 +269,42 @@ export default function PortfolioSection() {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox for full-screen image preview */}
+      {lightboxOpen && lightboxImage && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-modal-backdrop-in"
+          role="dialog"
+          aria-modal="true"
+          onClick={closeLightbox}
+        >
+          {/* Close button */}
+          <button
+            aria-label="Close lightbox"
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 w-12 h-12 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 transition-all duration-200 z-10"
+          >
+            <CloseIcon fontSize="medium" />
+          </button>
+
+          {/* Image container */}
+          <div 
+            className="relative max-w-7xl max-h-[90vh] animate-modal-content-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightboxImage}
+              alt="Full screen preview"
+              className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+            />
+            
+            {/* Image info overlay */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm">
+              Press ESC or click outside to close
             </div>
           </div>
         </div>

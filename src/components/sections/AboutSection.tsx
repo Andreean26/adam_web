@@ -39,35 +39,35 @@ export default function AboutSection() {
               <ScrollReveal animation="stagger" delay={300} className="grid grid-cols-2 gap-4">
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-cyan-400 transition-colors">React & Next.js</span>
+                  <span className="text-[var(--foreground)] group-hover:text-cyan-400 transition-colors">React & Next.js</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-blue-400 transition-colors">React Native</span>
+                  <span className="text-[var(--foreground)] group-hover:text-blue-400 transition-colors">React Native</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-sky-400 transition-colors">Flutter</span>
+                  <span className="text-[var(--foreground)] group-hover:text-sky-400 transition-colors">Flutter</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-red-400 to-rose-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-red-400 transition-colors">Laravel</span>
+                  <span className="text-[var(--foreground)] group-hover:text-red-400 transition-colors">Laravel</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-violet-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-purple-400 transition-colors">TypeScript</span>
+                  <span className="text-[var(--foreground)] group-hover:text-purple-400 transition-colors">TypeScript</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-green-400 transition-colors">Node.js</span>
+                  <span className="text-[var(--foreground)] group-hover:text-green-400 transition-colors">Node.js</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-yellow-400 transition-colors">PHP & MySQL</span>
+                  <span className="text-[var(--foreground)] group-hover:text-yellow-400 transition-colors">PHP & MySQL</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-gray-300 group-hover:text-teal-400 transition-colors">Arduino & IoT</span>
+                  <span className="text-[var(--foreground)] group-hover:text-teal-400 transition-colors">Arduino & IoT</span>
                 </div>
               </ScrollReveal>
             </div>
