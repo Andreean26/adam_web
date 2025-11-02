@@ -1,14 +1,44 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Tree } from '@/components/ui/NatureDecorations';
 
 export default function AboutSection() {
+  const [theme, setTheme] = useState<string>('dark');
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+    };
+    
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const isLightMode = theme === 'light';
+
   return (
   <section id="about" className="section-modern relative overflow-hidden">
-      {/* Minimal soft accents */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute -top-16 -left-10 w-48 h-48 bg-[var(--accent)]/10 blur-3xl rounded-full"></div>
-        <div className="absolute top-1/3 right-10 w-64 h-64 bg-[var(--accent-2)]/10 blur-3xl rounded-full"></div>
-      </div>
+      {/* Conditional decorations */}
+      {isLightMode ? (
+        <>
+          {/* Nature decorations */}
+          <Tree variant={1} size="md" className="absolute top-20 right-10 z-[1] opacity-20" />
+          <Tree variant={3} size="sm" className="absolute bottom-10 left-10 z-[1] opacity-20" />
+        </>
+      ) : (
+        <>
+          {/* Tech theme */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute -top-16 -left-10 w-48 h-48 bg-[var(--accent)]/10 blur-3xl rounded-full"></div>
+            <div className="absolute top-1/3 right-10 w-64 h-64 bg-[var(--accent-2)]/10 blur-3xl rounded-full"></div>
+          </div>
+        </>
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade" className="text-center mb-16">

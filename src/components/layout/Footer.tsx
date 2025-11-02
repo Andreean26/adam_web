@@ -1,21 +1,50 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { Grass, Tree } from '@/components/ui/NatureDecorations';
 
 export default function Footer() {
+  const [theme, setTheme] = useState<string>('dark');
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+    };
+    
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const isLightMode = theme === 'light';
+
   return (
   <footer className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-pulse"></div>
-      </div>
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      {/* Conditional decorations based on theme */}
+      {isLightMode ? (
+        <>
+          {/* Nature Theme - Light Mode */}
+          <Grass className="z-[1] opacity-70" />
+          <Tree variant={2} size="sm" className="absolute bottom-12 left-20 z-[2]" />
+          <Tree variant={3} size="sm" className="absolute bottom-12 right-32 z-[2]" />
+        </>
+      ) : (
+        <>
+          {/* Tech Theme - Dark Mode */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-20 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <div className="absolute top-40 right-32 w-1 h-1 bg-purple-400 rounded-full animate-float"></div>
+            <div className="absolute bottom-20 left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-pulse"></div>
+          </div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        </>
+      )}
 
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
+import { FallingLeaves, SunMoon } from '@/components/ui/NatureDecorations';
 
 // Lazy load non-critical sections for better initial load
 const SkillsSection = dynamic(() => import('@/components/sections/SkillsSection'), {
@@ -21,6 +22,10 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 export default function Home() {
   return (
     <>
+      {/* Nature decorations - only visible in light mode */}
+      <FallingLeaves />
+      <SunMoon />
+      
       <Header />
       <main className="flex-1">
         <HeroSection />

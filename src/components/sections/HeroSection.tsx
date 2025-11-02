@@ -1,21 +1,56 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import DownloadIcon from '@mui/icons-material/Download';
+import { Mountains, Tree, Clouds, Birds } from '@/components/ui/NatureDecorations';
 
 export default function HeroSection() {
+  const [theme, setTheme] = useState<string>('dark');
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+    };
+    
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
+  }, []);
+
+  const isLightMode = theme === 'light';
+
   return (
   <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Subtle grid pattern */}
-  <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-      {/* Minimal geometric accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 left-10 w-24 h-24 bg-[var(--accent)]/10 blur-3xl rounded-full"></div>
-        <div className="absolute -top-10 right-10 w-40 h-40 bg-[var(--accent-2)]/10 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-[var(--accent-3)]/10 blur-3xl rounded-full"></div>
-      </div>
+      {/* Conditional background based on theme */}
+      {isLightMode ? (
+        <>
+          {/* Nature Theme - Light Mode */}
+          <Mountains className="z-[1] opacity-60" />
+          <Clouds className="z-[2]" />
+          <Birds className="z-[2]" />
+          
+          {/* Trees decoration */}
+          <Tree variant={1} size="lg" className="absolute bottom-20 left-10 z-[3]" />
+          <Tree variant={2} size="md" className="absolute bottom-16 left-32 z-[2]" />
+          <Tree variant={3} size="lg" className="absolute bottom-20 right-20 z-[3]" />
+          <Tree variant={1} size="md" className="absolute bottom-16 right-48 z-[2]" />
+        </>
+      ) : (
+        <>
+          {/* Tech Theme - Dark Mode */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-24 left-10 w-24 h-24 bg-[var(--accent)]/10 blur-3xl rounded-full"></div>
+            <div className="absolute -top-10 right-10 w-40 h-40 bg-[var(--accent-2)]/10 blur-3xl rounded-full"></div>
+            <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-[var(--accent-3)]/10 blur-3xl rounded-full"></div>
+          </div>
+        </>
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

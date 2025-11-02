@@ -80,7 +80,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-[var(--foreground)]`}
+        style={{ background: 'var(--background)' }}
       >
   <div className="relative z-10 min-h-screen flex flex-col">
           <AnimatedBackground />
