@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { HiHome, HiUser, HiLightningBolt, HiBriefcase, HiColorSwatch, HiMail, HiMenu, HiX } from 'react-icons/hi';
 
 type SectionId = 'home' | 'about' | 'skills' | 'services' | 'portfolio' | 'contact';
 
@@ -177,13 +178,9 @@ export default function Header() {
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <HiX className="h-6 w-6" />
                 ) : (
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <HiMenu className="h-6 w-6" />
                 )}
               </button>
             </div>
@@ -230,12 +227,12 @@ export default function Header() {
                     }}
                   >
                     <span className="mr-3 text-xl">
-                      {item.id === 'home' && '🏠'}
-                      {item.id === 'about' && '👤'}
-                      {item.id === 'skills' && '⚡'}
-                      {item.id === 'services' && '💼'}
-                      {item.id === 'portfolio' && '🎨'}
-                      {item.id === 'contact' && '📧'}
+                      {item.id === 'home' && <HiHome />}
+                      {item.id === 'about' && <HiUser />}
+                      {item.id === 'skills' && <HiLightningBolt />}
+                      {item.id === 'services' && <HiBriefcase />}
+                      {item.id === 'portfolio' && <HiColorSwatch />}
+                      {item.id === 'contact' && <HiMail />}
                     </span>
                     {item.label}
                   </Link>

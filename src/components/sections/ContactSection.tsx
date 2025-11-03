@@ -101,7 +101,7 @@ export default function ContactSection() {
               {/* Availability Status */}
               <div className="inline-flex items-center justify-center mb-8 px-6 py-3 bg-[var(--card)] border border-[var(--border)] rounded-full">
                 <span className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></span>
-                <span className="text-[var(--foreground)] font-semibold">Open to work — available for freelance and project-based roles.</span>
+                <span className="text-[var(--foreground)] font-semibold">Open to work — available for freelance</span>
               </div>
 
               {/* Social Links */}
