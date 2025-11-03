@@ -136,13 +136,15 @@ export default function PortfolioSection() {
           ))}
         </ScrollReveal>
 
-        {/* View More Button */}
-        <ScrollReveal animation="scale" delay={400} className="text-center mt-12">
-          <button className="relative px-8 py-3 rounded-lg overflow-hidden group surface-card surface-hover font-semibold">
-            <span className="relative z-10 text-[var(--foreground)]">View All Projects</span>
-            <div className="absolute inset-0 pointer-events-none"></div>
-          </button>
-        </ScrollReveal>
+        {/* View More Button - Only show if more than 6 projects */}
+        {projects.length > 6 && (
+          <ScrollReveal animation="scale" delay={400} className="text-center mt-12">
+            <button className="relative px-8 py-3 rounded-lg overflow-hidden group surface-card surface-hover font-semibold">
+              <span className="relative z-10 text-[var(--foreground)]">View All Projects</span>
+              <div className="absolute inset-0 pointer-events-none"></div>
+            </button>
+          </ScrollReveal>
+        )}
       </div>
 
       {/* Modal */}
