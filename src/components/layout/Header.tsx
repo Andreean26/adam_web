@@ -187,58 +187,85 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Dropdown Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 pointer-events-auto">
-          {/* Backdrop */}
+          {/* Backdrop - No Blur */}
           <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
+            className="absolute inset-0 bg-white/0 animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
           />
           
-          {/* Menu Panel */}
-          <div 
-            className="absolute top-20 right-4 left-4 bg-[var(--surface)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden animate-slide-down"
-            style={{
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-            }}
-          >
-            <nav className="py-4">
-              {navItems.map((item, index) => {
-                const isActive = active === item.id;
-                return (
-                  <Link
-                    key={item.id}
-                    href={`#${item.id}`}
-                    onClick={() => {
-                      setActive(item.id);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={
-                      'flex items-center px-6 py-4 text-base font-medium transition-all border-l-4 ' +
-                      (isActive 
-                        ? 'text-[var(--accent)] border-[var(--accent)] bg-[var(--card)]' 
-                        : 'text-[var(--muted)] border-transparent hover:text-[var(--foreground)] hover:bg-[var(--card)] hover:border-[var(--accent)]/50')
-                    }
-                    style={{
-                      animationDelay: `${index * 50}ms`,
-                      animation: 'slideInRight 0.3s ease-out both'
-                    }}
-                  >
-                    <span className="mr-3 text-xl">
-                      {item.id === 'home' && <HiHome />}
-                      {item.id === 'about' && <HiUser />}
-                      {item.id === 'skills' && <HiLightningBolt />}
-                      {item.id === 'services' && <HiBriefcase />}
-                      {item.id === 'portfolio' && <HiColorSwatch />}
-                      {item.id === 'contact' && <HiMail />}
-                    </span>
+          {/* Dropdown Menu - Separated Items */}
+          <div className="absolute top-20 right-4 flex flex-col gap-2">
+            {navItems.map((item, index) => {
+              const isActive = active === item.id;
+              const icons = {
+                home: <HiHome />,
+                about: <HiUser />,
+                skills: <HiLightningBolt />,
+                services: <HiBriefcase />,
+                portfolio: <HiColorSwatch />,
+                contact: <HiMail />
+              };
+              
+              return (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => {
+                    setActive(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={
+                    'flex items-center justify-between px-5 py-3 rounded-xl shadow-lg transition-all border ' +
+                    'bg-[var(--surface)] ' +
+                    (isActive 
+                      ? 'border-[var(--accent)] text-[var(--accent)]' 
+                      : 'border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)]/50')
+                  }
+                  style={{
+                    animationDelay: `${index * 60}ms`,
+                    animation: 'slideInDown 0.4s ease-out both',
+                    minWidth: '200px'
+                  }}
+                >
+                  {/* Label - Left */}
+                  <span className="text-base font-medium">
                     {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
+                  </span>
+                  
+                  {/* Icon - Right */}
+                  <span className={
+                    'text-xl transition-transform duration-300 ' +
+                    (isActive ? 'scale-110' : '')
+                  }>
+                    {icons[item.id as keyof typeof icons]}
+                  </span>
+                </Link>
+              );
+            })}
+            
+            {/* Close Button */}
+            {/* <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-5 py-3 rounded-xl shadow-lg transition-all border border-red-500/50 bg-[var(--surface)] text-red-500 hover:border-red-500"
+              style={{
+                animationDelay: `${navItems.length * 60}ms`,
+                animation: 'slideInDown 0.4s ease-out both',
+                minWidth: '200px'
+              }}
+            >
+             
+              <span className="text-base font-medium">
+                Close
+              </span>
+              
+             
+              <span className="text-xl">
+                <HiX />
+              </span>
+            </button> */}
           </div>
         </div>
       )}
