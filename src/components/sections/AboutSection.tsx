@@ -78,7 +78,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-[var(--foreground)] group-hover:text-sky-400 transition-colors">Flutter</span>
+                  <span className="text-[var(--foreground)] group-hover:text-sky-400 transition-colors">Git & GitHub</span>
                 </div>
                 <div className="flex items-center group">
                   <div className="w-3 h-3 bg-gradient-to-r from-red-400 to-rose-500 rounded-full mr-3 animate-pulse"></div>
@@ -97,8 +97,8 @@ export default function AboutSection() {
                   <span className="text-[var(--foreground)] group-hover:text-yellow-400 transition-colors">PHP & MySQL</span>
                 </div>
                 <div className="flex items-center group">
-                  <div className="w-3 h-3 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-[var(--foreground)] group-hover:text-teal-400 transition-colors">Arduino & IoT</span>
+                  <div className="w-3 h-3 bg-gradient-to-r from-rose-400 to-red-500 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-[var(--foreground)] group-hover:text-teal-400 transition-colors">CodeIgniter</span>
                 </div>
               </ScrollReveal>
             </div>
@@ -130,7 +130,7 @@ export default function AboutSection() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center group">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-[var(--accent)] to-sky-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">3+</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-[var(--accent)] to-sky-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">5+</div>
                   <div className="muted text-sm">Projects</div>
                 </div>
                 <div className="text-center group">

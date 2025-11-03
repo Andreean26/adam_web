@@ -28,15 +28,18 @@ const skillCategories = [
   {
     title: 'Mobile Development',
     skills: [
-      { name: 'React Native', level: 85 },
+      { name: 'React Native', level: 95 },
       { name: 'Flutter', level: 75 },
+      { name: 'Kotlin', level: 70 },
       { name: 'Progressive Web Apps', level: 80 },
     ],
   },
   {
     title: 'Database & Tools',
     skills: [
-      { name: 'MySQL', level: 85 },
+      { name: 'MySQL', level: 95 },
+      { name: 'MongoDB', level: 70 },
+      { name: 'PostgreSQL', level: 90 },
       { name: 'Firebase', level: 80 },
       { name: 'Git & GitHub', level: 90 },
       { name: 'Docker', level: 70 },
