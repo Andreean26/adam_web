@@ -303,9 +303,9 @@ export default function PortfolioSection() {
             />
             
             {/* Image info overlay */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm">
+            {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm">
               Press ESC or click outside to close
-            </div>
+            </div> */}
           </div>
         </div>
       )}
