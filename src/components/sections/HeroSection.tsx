@@ -29,16 +29,14 @@ export default function HeroSection() {
       {/* Conditional background based on theme */}
       {isLightMode ? (
         <>
-          {/* Nature Theme - Light Mode */}
-          <Mountains className="z-[1] opacity-60" />
+          {/* Nature Theme - Light Mode - Optimized */}
+          <Mountains className="z-[1] opacity-50" />
           <Clouds className="z-[2]" />
           <Birds className="z-[2]" />
           
-          {/* Trees decoration */}
+          {/* Trees decoration - reduced from 4 to 2 */}
           <Tree variant={1} size="lg" className="absolute bottom-20 left-10 z-[3]" />
-          <Tree variant={2} size="md" className="absolute bottom-16 left-32 z-[2]" />
           <Tree variant={3} size="lg" className="absolute bottom-20 right-20 z-[3]" />
-          <Tree variant={1} size="md" className="absolute bottom-16 right-48 z-[2]" />
         </>
       ) : (
         <>

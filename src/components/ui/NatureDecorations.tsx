@@ -34,7 +34,7 @@ export function Mountains({ className = "" }: { className?: string }) {
   );
 }
 
-// Tree Component - Realistic SVG
+// Tree Component - Optimized Simple SVG
 export function Tree({ 
   size = "md", 
   className = "",
@@ -47,29 +47,27 @@ export function Tree({
   const sizes = {
     sm: "w-12 h-16",
     md: "w-20 h-28",
-    lg: "w-32 h-40"
+    lg: "w-28 h-36"
   };
 
   const trees = {
-    1: ( // Pine tree
+    1: ( // Simple Pine tree
       <>
-        <path d="M50,90 L50,100" stroke="currentColor" strokeWidth="3" className="text-[var(--accent-3)]" />
-        <path d="M50,30 L30,50 L35,50 L20,70 L25,70 L15,90 L85,90 L75,70 L80,70 L65,50 L70,50 Z" 
+        <rect x="47" y="85" width="6" height="15" fill="currentColor" className="text-[var(--accent-3)]" />
+        <path d="M50,30 L25,60 L35,60 L15,85 L85,85 L65,60 L75,60 Z" 
           fill="currentColor" className="text-[var(--accent)]" />
       </>
     ),
-    2: ( // Round tree
+    2: ( // Simple Round tree
       <>
-        <rect x="45" y="70" width="10" height="30" fill="currentColor" className="text-[var(--accent-3)]" />
-        <circle cx="50" cy="50" r="25" fill="currentColor" className="text-[var(--accent-2)]" />
-        <circle cx="50" cy="60" r="20" fill="currentColor" className="text-[var(--accent)]" />
+        <rect x="46" y="75" width="8" height="25" fill="currentColor" className="text-[var(--accent-3)]" />
+        <circle cx="50" cy="55" r="22" fill="currentColor" className="text-[var(--accent)]" />
       </>
     ),
-    3: ( // Bushy tree
+    3: ( // Simple Bushy tree
       <>
-        <path d="M50,80 L50,100" stroke="currentColor" strokeWidth="4" className="text-[var(--accent-3)]" />
-        <ellipse cx="50" cy="45" rx="30" ry="25" fill="currentColor" className="text-[var(--accent)]" />
-        <ellipse cx="50" cy="60" rx="25" ry="20" fill="currentColor" className="text-[var(--accent-2)]" />
+        <rect x="46" y="80" width="8" height="20" fill="currentColor" className="text-[var(--accent-3)]" />
+        <ellipse cx="50" cy="50" rx="28" ry="30" fill="currentColor" className="text-[var(--accent)]" />
       </>
     )
   };
@@ -78,14 +76,17 @@ export function Tree({
     <svg
       viewBox="0 0 100 100"
       className={`${sizes[size]} ${className} animate-sway`}
-      style={{ transformOrigin: 'bottom center' }}
+      style={{ 
+        transformOrigin: 'bottom center',
+        willChange: 'transform'
+      }}
     >
       {trees[variant]}
     </svg>
   );
 }
 
-// Grass Component
+// Grass Component - Optimized (reduced from 60 to 20 blades)
 export function Grass({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute bottom-0 left-0 right-0 h-12 overflow-hidden ${className}`}>
@@ -94,18 +95,19 @@ export function Grass({ className = "" }: { className?: string }) {
         className="w-full h-full"
         preserveAspectRatio="none"
       >
-        {/* Grass blades pattern */}
-        {Array.from({ length: 60 }).map((_, i) => (
+        {/* Grass blades pattern - optimized */}
+        {Array.from({ length: 20 }).map((_, i) => (
           <path
             key={i}
-            d={`M${i * 20},100 Q${i * 20 + 2},80 ${i * 20},60`}
+            d={`M${i * 60},100 Q${i * 60 + 2},80 ${i * 60},60`}
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="3"
             fill="none"
             className="text-[var(--accent)]"
             style={{
               animation: `grass-wave ${3 + (i % 3)}s ease-in-out infinite`,
-              animationDelay: `${i * 0.05}s`
+              animationDelay: `${i * 0.1}s`,
+              willChange: 'transform'
             }}
           />
         ))}
@@ -114,7 +116,7 @@ export function Grass({ className = "" }: { className?: string }) {
   );
 }
 
-// Falling Leaves Component
+// Falling Leaves Component - Optimized (reduced from 8 to 4)
 export function FallingLeaves() {
   const [theme, setTheme] = useState<string>('dark');
 
@@ -135,16 +137,17 @@ export function FallingLeaves() {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-[5]">
-      {Array.from({ length: 8 }).map((_, i) => (
+      {Array.from({ length: 4 }).map((_, i) => (
         <div
           key={i}
           className="absolute animate-leaf-fall text-[var(--accent)]"
           style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${i * 2}s`,
-            animationDuration: `${12 + Math.random() * 8}s`,
-            fontSize: `${1 + Math.random()}rem`,
-            opacity: 0.6
+            left: `${20 + i * 25}%`,
+            animationDelay: `${i * 3}s`,
+            animationDuration: '15s',
+            fontSize: '1.2rem',
+            opacity: 0.5,
+            willChange: 'transform, opacity'
           }}
         >
           🍃
@@ -154,18 +157,19 @@ export function FallingLeaves() {
   );
 }
 
-// Clouds Component
+// Clouds Component - Optimized (reduced to 2 clouds)
 export function Clouds({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute top-0 left-0 right-0 h-32 overflow-hidden pointer-events-none ${className}`}>
-      {[0, 1, 2].map((i) => (
+      {[0, 1].map((i) => (
         <div
           key={i}
           className="absolute text-white/30 text-6xl"
           style={{
-            top: `${20 + i * 30}px`,
-            animation: `cloud-drift ${40 + i * 20}s linear infinite`,
-            animationDelay: `${i * 15}s`
+            top: `${30 + i * 40}px`,
+            animation: `cloud-drift ${50 + i * 20}s linear infinite`,
+            animationDelay: `${i * 20}s`,
+            willChange: 'transform'
           }}
         >
           ☁️
@@ -175,22 +179,19 @@ export function Clouds({ className = "" }: { className?: string }) {
   );
 }
 
-// Birds Component
+// Birds Component - Optimized (single bird)
 export function Birds({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute top-20 left-0 right-0 h-20 overflow-hidden pointer-events-none ${className}`}>
-      {[0, 1].map((i) => (
-        <div
-          key={i}
-          className="absolute text-[var(--foreground)]/40 text-2xl"
-          style={{
-            animation: `bird-fly ${25 + i * 10}s linear infinite`,
-            animationDelay: `${i * 12}s`
-          }}
-        >
-          🦅
-        </div>
-      ))}
+      <div
+        className="absolute text-[var(--foreground)]/40 text-2xl"
+        style={{
+          animation: 'bird-fly 30s linear infinite',
+          willChange: 'transform, opacity'
+        }}
+      >
+        🦅
+      </div>
     </div>
   );
 }

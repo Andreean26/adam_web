@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import { Tree } from '@/components/ui/NatureDecorations';
 
 export default function AboutSection() {
   const [theme, setTheme] = useState<string>('dark');
@@ -23,12 +22,14 @@ export default function AboutSection() {
 
   return (
   <section id="about" className="section-modern relative overflow-hidden">
-      {/* Conditional decorations */}
+      {/* Conditional decorations - optimized (removed trees) */}
       {isLightMode ? (
         <>
-          {/* Nature decorations */}
-          <Tree variant={1} size="md" className="absolute top-20 right-10 z-[1] opacity-20" />
-          <Tree variant={3} size="sm" className="absolute bottom-10 left-10 z-[1] opacity-20" />
+          {/* Nature decorations - minimal for performance */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute -top-16 -left-10 w-48 h-48 bg-[var(--accent)]/20 blur-3xl rounded-full"></div>
+            <div className="absolute top-1/3 right-10 w-64 h-64 bg-[var(--accent-2)]/20 blur-3xl rounded-full"></div>
+          </div>
         </>
       ) : (
         <>

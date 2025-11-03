@@ -5,7 +5,7 @@ import Link from 'next/link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Grass, Tree } from '@/components/ui/NatureDecorations';
+import { Grass } from '@/components/ui/NatureDecorations';
 
 export default function Footer() {
   const [theme, setTheme] = useState<string>('dark');
@@ -29,10 +29,8 @@ export default function Footer() {
       {/* Conditional decorations based on theme */}
       {isLightMode ? (
         <>
-          {/* Nature Theme - Light Mode */}
-          <Grass className="z-[1] opacity-70" />
-          <Tree variant={2} size="sm" className="absolute bottom-12 left-20 z-[2]" />
-          <Tree variant={3} size="sm" className="absolute bottom-12 right-32 z-[2]" />
+          {/* Nature Theme - Light Mode - Optimized (grass only, no trees) */}
+          <Grass className="z-[1] opacity-60" />
         </>
       ) : (
         <>
