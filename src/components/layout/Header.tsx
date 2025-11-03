@@ -192,7 +192,7 @@ export default function Header() {
         <div className="md:hidden fixed inset-0 z-40 pointer-events-auto">
           {/* Backdrop - No Blur */}
           <div 
-            className="absolute inset-0 bg-white/0 animate-fade-in"
+            className="absolute inset-0 bg-black/30 animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
           />
           

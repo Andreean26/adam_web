@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Adam Fawazzaky
+              Adam Fawazzaky Fardy Andreean
             </h3>
     <p className="muted mb-4 max-w-md">
               Full Stack Developer passionate about creating exceptional digital experiences. 
@@ -87,9 +87,6 @@ export default function Footer() {
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-[var(--accent)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&to=fawazzakyadam26@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
                   className="hover:text-[var(--accent)] transition-colors"
                   >
                   fawazzakyadam26@gmail.com
@@ -97,7 +94,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-[var(--accent-2)] rounded-full mr-2 mt-2 flex-shrink-0"></span>
-                <a href="https://wa.me/6282132082482" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-2)] transition-colors">
+                <a className="hover:text-[var(--accent-2)] transition-colors">
                   +62 821-3208-2482
                 </a>
               </li>
