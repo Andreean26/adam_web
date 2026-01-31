@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import LaunchIcon from '@mui/icons-material/Launch';
 import CloseIcon from '@mui/icons-material/Close';
@@ -77,10 +78,16 @@ export default function PortfolioSection() {
 
         <ScrollReveal animation="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.id}
               onClick={() => onOpen(project)}
-              className="group surface-card surface-hover rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 relative cursor-pointer"
+              className="group surface-card rounded-xl overflow-hidden relative cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
             >
               {/* Project Image */}
               <div className="h-48 bg-gradient-to-br from-[var(--card)] to-transparent relative overflow-hidden">
@@ -132,7 +139,7 @@ export default function PortfolioSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </ScrollReveal>
 

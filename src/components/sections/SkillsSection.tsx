@@ -98,6 +98,8 @@ export default function SkillsSection() {
               animation="slideUp" 
               delay={categoryIndex * 100}
               className="surface-card rounded-xl p-6 md:p-8 relative overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               {/* Glowing background effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

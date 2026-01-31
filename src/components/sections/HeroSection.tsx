@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import Typewriter from '@/components/ui/Typewriter';
+import { motion } from 'framer-motion';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import DownloadIcon from '@mui/icons-material/Download';
 import { Mountains, Tree, Clouds, Birds } from '@/components/ui/NatureDecorations';
@@ -54,7 +56,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <ScrollReveal animation="slideLeft" className="text-center lg:text-left">
-            <div className="heading-eyebrow mb-2 mt-4">IT Developer</div>
+            <Typewriter text="IT Developer" className="heading-eyebrow mb-2 mt-4" />
             
             <h1 className="text-4xl md:text-5xl lg:text-7xl heading-title mb-6 leading-tight">
               <span className="text-[var(--foreground)]">Hello, I'm</span>{' '}
@@ -133,9 +135,13 @@ export default function HeroSection() {
                 </div>
 
                 {/* Main image container with unique shape */}
-                <div className="absolute inset-8 group perspective-1000">
+                <motion.div
+                  className="absolute inset-8 perspective-1000 group"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
                   {/* Glassmorphism card effect */}
-                  <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2">
+                  <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl">
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 via-transparent to-[var(--accent-2)]/10 z-10"></div>
                     
@@ -173,7 +179,7 @@ export default function HeroSection() {
                   <div className="absolute -right-2 bottom-1/4 bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-float z-20">
                     💻 Full Stack
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Decorative dots pattern */}
                 <div className="absolute -bottom-4 -right-4 grid grid-cols-3 gap-2 opacity-40">
