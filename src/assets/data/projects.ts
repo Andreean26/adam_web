@@ -15,23 +15,6 @@ export type Project = {
 	repository?: string;
 };
 
-const colorPalette = ['#22d3ee', '#a78bfa', '#fb7185', '#0ea5e9', '#7c3aed'];
-
-function svgPlaceholder(width: number, height: number, bg: string, text: string) {
-	const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}'>
-		<defs>
-			<linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-				<stop offset='0%' stop-color='${bg}' stop-opacity='0.35' />
-				<stop offset='100%' stop-color='${bg}' stop-opacity='0.15' />
-			</linearGradient>
-		</defs>
-		<rect width='100%' height='100%' fill='url(#g)'/>
-		<rect x='8' y='8' width='${width - 16}' height='${height - 16}' rx='16' ry='16' fill='none' stroke='${bg}' stroke-opacity='0.35' stroke-width='2'/>
-		<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI, Roboto, Arial' font-size='${Math.floor(Math.min(width, height) / 14)}' fill='${bg}' fill-opacity='0.9'>${text}</text>
-	</svg>`;
-	return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-}
-
 export const projects: Project[] = [
 	{
 		id: 1,

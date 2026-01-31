@@ -12,6 +12,7 @@ interface ScrollRevealProps {
   className?: string;
   as?: React.ElementType;
   viewport?: { once?: boolean; margin?: string; amount?: number | "some" | "all" };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -70,6 +71,7 @@ export default function ScrollReveal({
   // Convert delay from ms to seconds for framer-motion
   const delayInSeconds = delay / 1000;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MotionComponent = motion.create(Component as any);
 
   return (
